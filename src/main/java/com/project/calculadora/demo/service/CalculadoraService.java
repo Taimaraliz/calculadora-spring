@@ -3,24 +3,35 @@ package com.project.calculadora.demo.service;
 import org.springframework.stereotype.Service;
 
 import com.project.calculadora.demo.model.Calculadora;
+import com.project.calculadora.demo.model.Resultado;
 
 @Service
 public class CalculadoraService {
 	
-	public int soma(Calculadora calculadora) {
+	public Resultado soma(Calculadora calculadora) {
 		
-	return calculadora.getVar1() + calculadora.getVar2();
+	int soma = calculadora.getVar1() + calculadora.getVar2();
+	Resultado resultado = new Resultado(soma);
+	return resultado;
 	}
 	
-	/*public String subtracao(int primeiroValor, int segundoValor) {
-		return Integer.toString(primeiroValor - segundoValor);
+	public Resultado subtracao(Calculadora calculadora) {
+		
+	int subtrair = calculadora.getVar1() - calculadora.getVar2();
+	Resultado resultado = new Resultado(subtrair);
+	return resultado;
+	}
+	public Resultado multiplicacao(Calculadora calculadora) {
+		
+		int multiplicar = calculadora.getVar1() * calculadora.getVar2();
+		Resultado resultado = new Resultado(multiplicar);
+		return resultado;
 	}
 	
-	public String mutiplicacao(int primeiroValor, int segundoValor) {
-		return Double.toString(primeiroValor * segundoValor);
+	public Resultado divisao(Calculadora calculadora) {
+		
+		int dividir = calculadora.getVar1() / calculadora.getVar2();
+		Resultado resultado = new Resultado(dividir);
+		return resultado;
 	}
-	
-	public String divisao(int primeiroValor, int segundoValor) {
-		return Double.toString(primeiroValor / segundoValor);
-	}*/
 }
